@@ -61,12 +61,12 @@ export const deleteConversation = (conversationId) => {
 
 // ========== 消息(Message)相关接口 ==========
 /**
- * 发送消息
- * @param {Object} data - { conversation_id, username, role, content }
+ * 发送消息（适配新后端接口 /api/chat）
+ * @param {Object} data - { conversation_id, username, content, mode }
  */
 export const sendMessage = (data) => {
   return request({
-    url: '/api/message',
+    url: '/api/chat', // 仅修改此处：从 /api/message 改为 /api/chat
     method: 'post',
     data
   })
