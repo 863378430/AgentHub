@@ -31,21 +31,3 @@ CREATE TABLE `chat_message` (
   KEY `idx_conversation_id` (`conversation_id`) COMMENT '对话ID索引，便于查询单对话的所有消息',
   KEY `idx_create_time` (`create_time`) COMMENT '时间索引，便于按时间排序消息'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='智能体聊天消息详情表';
-
--- 5. 插入测试对话数据（16位对话ID：2026031600000001）
-INSERT INTO `chat_conversation` (`conversation_id`, `username`, `title`) 
-VALUES ('2026031600000001', 'test_user', '智能体功能咨询');
-
--- 6. 插入测试聊天记录
--- 用户发送的消息
-INSERT INTO `chat_message` (`conversation_id`, `username`, `role`, `content`) 
-VALUES ('2026031600000001', 'test_user', 'user', '你好，智能体怎么使用？');
--- 智能体回复的消息
-INSERT INTO `chat_message` (`conversation_id`, `username`, `role`, `content`) 
-VALUES ('2026031600000001', 'test_user', 'assistant', '你可以通过发送指令的方式调用智能体，比如输入“帮我写SQL”，也可以结合业务场景定制指令');
-
--- 7. 验证数据（查询测试）
-SELECT c.conversation_id, c.username, m.role, m.content 
-FROM chat_conversation c
-LEFT JOIN chat_message m ON c.conversation_id = m.conversation_id
-WHERE c.conversation_id = '2026031600000001';
