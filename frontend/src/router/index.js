@@ -4,9 +4,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 // 修复：统一使用 @/ 别名（避免相对路径层级错误）
 import Login from '@/views/Login.vue'
 import MainLayout from '@/views/MainLayout.vue'
-import ChatPage from '@/views/ChatPage.vue'
-import DataPage from '@/views/DataPage.vue'
-import PermissionPage from '@/views/PermissionPage.vue'
 
 // 导入权限工具函数
 import { getToken } from '@/utils/auth'
@@ -36,20 +33,8 @@ const routes = [
       {
         path: 'chat',
         name: 'Chat',
-        component: ChatPage,
+        component: MainLayout,
         meta: { title: '新对话 - AgentHub', requiresAuth: true }
-      },
-      {
-        path: 'data',
-        name: 'Data',
-        component: DataPage,
-        meta: { title: '数据审核 - AgentHub', requiresAuth: true }
-      },
-      {
-        path: 'permission',
-        name: 'Permission',
-        component: PermissionPage,
-        meta: { title: '权限管理 - AgentHub', requiresAuth: true }
       }
     ]
   },

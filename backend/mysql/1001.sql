@@ -1,3 +1,7 @@
+# 进入MySQL容器
+#docker exec -it mysql8 bash
+# 在容器内连接MySQL
+# mysql -u root -p123456
 CREATE DATABASE IF NOT EXISTS agent DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE agent;
 

@@ -24,3 +24,11 @@ export const testPermission = (permCode) => {
     method: 'get'
   })
 }
+
+// 新增：获取单个对话详情（ChatPage中用到）
+export const getConversation = (conversationId) => {
+  return request({
+    url: `/api/conversation/${conversationId}`,
+    method: 'get'
+  })
+}
